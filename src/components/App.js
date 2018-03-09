@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import logo from '../logo.svg';
 import '../App.css';
 import Teams from './teams/Teams'
+import Groups from './groups/Groups'
 import Dropdown from './dropdown/Dropdown'
 
 
@@ -12,6 +13,7 @@ class App extends Component {
     return (
       <Router>
         <Switch>
+            <Route path="/groups" component={Groups} />
             <Route path="/teams" component={Teams} />
             <Route path="/" component={Dropdown} />
         </Switch>
