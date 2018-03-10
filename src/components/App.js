@@ -4,11 +4,13 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { Route, Switch } from 'react-router-dom'
 import logo from '../logo.svg';
 import '../App.css';
-import { createStore } from 'redux' 
+import { createStore } from 'redux'
 import GroupReducer from '../reducers/groups'
 import Teams from './teams/Teams'
 import Groups from './groups/Groups'
+import Group from './groups/Group'
 import Dropdown from './dropdown/Dropdown'
+import Header from './Header'
 
 export const appStore = createStore(
     GroupReducer,
@@ -21,9 +23,10 @@ class App extends Component {
       <Provider store={appStore}>
         <Router>
           <Switch>
-              <Route path="/groups" component={Groups} />
+              <Route exact path="/groups" component={Groups} />
+              <Route path="/groups/:groupId" component={Group} />
               <Route path="/teams" component={Teams} />
-              <Route path="/" component={Dropdown} />
+              <Route path="/" component={Groups} />
           </Switch>
         </Router>
       </Provider>
